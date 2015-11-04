@@ -1,0 +1,7 @@
+*.md
+/epub
+/md
+/pdf
+/docx
+/img
+cover.jpg

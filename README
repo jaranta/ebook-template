@@ -1,0 +1,47 @@
+A template for creating ebooks (epub and pdf) from markdown files on Windows.
+
+Short how-to:
+
+* Install make, pandoc and some version of latex (originally used with MiKTeX).
+* Place docx-files with simple formatting in the docx-folder and type `make` on the command line in the folder. (Formatting assumes: level 1 headings as chapter headings, no fancy formatting otherwise.)
+* Move the markdown-files created in the root folder. Fill out the metadata required and place the images in img-folder. Optionally, place cover.jpg in the root folder. Type `make` on the command line again.
+
+Templates need the following YAML:
+
+Markdown files for the pdf-files that are typeset as separate files should have:
+
+	---
+	title: the long title, used on the front page
+	short-title: the short title, used in the header
+	author: author name, used on the front page and at the beginning of the text
+	lang: a latex formatted language code, e.g. 'finnish'
+	separate: 'true', is used to change the layout for the files typeset separately
+	cover: is optional, but should point to a file in the root, e.g. 'cover.jpg'
+	---
+
+metadata.yaml needs to have:
+
+	---
+	collection: 'true' to indicate that the metadata is for the collect pdfs
+	lang: a latex formatted language code, e.g. 'finnish'
+	title: the long title, used on the front page
+	short-title: the short title, used in the header
+	---
+
+metadata.yaml can optionally have:
+
+	---
+	toc: 'true' if you want to include a table of contents
+	cover: is optional, but should point to a file in the root, e.g. 'cover.jpg'
+	cover-image: is a duplicate of cover: it is used by the built-in ebook-template
+	creator:
+	- role: creator is optional, but should have the author, editor etc. info options are MARC-relators recognized by pandoc, e.g. 'author', 'editor'
+	  text: name of the author
+	- role: editor
+	  text: name of the editor
+	- role: pfr
+	  text: name of the proofreader
+	publisher: name of the publisher
+	date: year of publication
+	rights: copyright information
+	---

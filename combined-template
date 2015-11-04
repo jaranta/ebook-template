@@ -1,0 +1,13 @@
+﻿# $title$ {.title}
+$if(subtitle)$
+## $subtitle$ {.subtitle}
+$endif$
+
+$for(author)$
+*$author$*
+$endfor$
+
+$body$
+$for(include-after)$
+$include-after$
+$endfor$

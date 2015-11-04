@@ -1,0 +1,23 @@
+---
+cover: cover.jpg (used in the pdf-template)
+cover-image: cover.jpg (used in the epub-template)
+toc: true
+collection: true (to make one file with all the chapters)
+lang: finnish, english, or whatever (used by latex for hyphenation)
+title: "Title of the book"
+short-title: "Short title"
+creator:
+- role: author
+  text: Name of the author.
+- role: editor
+  text: Name of the editor.
+- role: pfr
+  text: Name of the proofreader.
+publisher: Publisher name
+date: year, or full date
+rights: | 
+	© Copyright information. Can be several paragraphs when the previous line is |.
+	
+    This is the second paragraph. It needs to be indented.
+isbn: ISBN XXX-XXX-XX-XXXX-X (pdf) / XXX-XXX-XX-XXXX-X (epub)
+---

@@ -1,0 +1,51 @@
+﻿@font-face {
+font-family: "FPL Neu";
+font-style: normal;
+font-weight: normal;
+src:url("fp9r8a.otf");
+}
+
+body{
+    font-size: 1em;
+    background: white;
+    color: black;
+    font-family: "FPL Neu", serif;	
+	line-height: 1.2em;
+	text-align: justify;
+}
+
+blockquote { 
+	font-size: 1.1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Gill, Helvetica, sans-serif;
+    font-weight: 300;
+    hyphens: none !important;
+    -moz-hyphens: none !important;
+    -webkit-hyphens: none !important;
+    adobe-hyphenate: none !important;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+	text-align: left;
+	line-height: 1.2em;
+}
+
+div#cover-image{
+    text-align: center;
+}
+
+a.footnoteRef{
+    vertical-align: super;
+    line-height: normal;
+    font-size: 0.7em;
+}
+
+img {
+    max-width: 98%;
+    max-height: 98%;
+    width: auto;
+    height: auto;
+}

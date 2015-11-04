@@ -1,0 +1,275 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Luis Cobo (luiscobogutierrez@gmail.com) with extensive modifications by:
+% Vel (vel@latextemplates.com)
+% Jonne Arjoranta
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT CONFIGURATIONS AND INFORMATION
+%----------------------------------------------------------------------------------------
+
+\documentclass[oneside,11pt]{memoir} % Font size
+
+%----------------------------------------------------------------------------------------
+%	REQUIRED PACKAGES
+%----------------------------------------------------------------------------------------
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage{longtable} % For table formatting
+
+\usepackage[osf]{libertine} % Use the Libertine font
+\usepackage{microtype} % Improves character and word spacing
+\usepackage{hyphenat} % For hyphenation
+
+\usepackage{tikz} % Required for drawing custom shapes
+\definecolor[named]{color01}{rgb}{.2,.4,.6} % Color used in the title page
+\usepackage{wallpaper} % Required for setting background images (title page)
+
+\usepackage[unicode=true,bookmarksnumbered=false,bookmarksopen=false,backref=section]{hyperref} % PDF meta-information specification
+
+% if language is defined, use babel
+$if(lang)$
+\usepackage[$lang$]{babel}
+$endif$
+
+%----------------------------------------------------------------------------------------
+%	HYPERLINKS
+%----------------------------------------------------------------------------------------
+
+\hypersetup{breaklinks=true,
+            bookmarks=false,
+            colorlinks=true,
+            citecolor=gray,
+            urlcolor=gray,
+            linkcolor=gray,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+
+%----------------------------------------------------------------------------------------
+%	PAPER, MARGIN AND HEADER/FOOTER SIZES
+%----------------------------------------------------------------------------------------
+
+\setstocksize{12.5cm}{9.4cm} % Paper size
+\settrimmedsize{\stockheight}{\stockwidth}{*} % No trims
+\setlrmarginsandblock{18pt}{18pt}{*} % Left/right margins
+\setulmarginsandblock{30pt}{36pt}{*} % Top/bottom margins
+\setheadfoot{14pt}{12pt} % Header/footer height
+\setheaderspaces{*}{8pt}{*} % Extra header space
+
+%----------------------------------------------------------------------------------------
+%	GRAPHICS OPTIONS
+%----------------------------------------------------------------------------------------
+
+$if(graphics)$
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+$endif$
+
+%----------------------------------------------------------------------------------------
+%	FOOTNOTE CUSTOMIZATION
+%----------------------------------------------------------------------------------------
+
+\renewcommand{\foottextfont}{\itshape\footnotesize} % Font settings for footnotes
+\setlength{\footmarkwidth}{-.1em} % Space between the footnote number and the text
+\setlength{\footmarksep}{.1em} % Space between multiple footnotes on the same page
+\renewcommand*{\footnoterule}{} % Remove the rule above the first footnote
+\setlength{\skip\footins}{1\onelineskip} % Space between the body text and the footnote
+
+%----------------------------------------------------------------------------------------
+%	HEADER AND FOOTER FORMATS
+%----------------------------------------------------------------------------------------
+
+\makepagestyle{mio} % Define a new custom page style
+\setlength{\headwidth}{\textwidth} % Header the same width as the text
+\makeheadrule{mio}{\textwidth}{0.1mm} % Header rule height
+% Use short title in the header if one is defined, otherwise leave the title out
+$if(short-title)$
+\makeoddhead{mio}{\scriptsize{\theauthor\hskip.2cm\vrule\hskip.2cm\itshape{$short-title$}}}{}{} % Header specification
+$else$
+\makeoddhead{mio}{\scriptsize{\theauthor}}{}{} % Header specification
+$endif$
+\makeoddfoot{mio}{}{\scriptsize {\thepage \quad \vrule \quad \thelastpage}}{} % Footer specification
+\makeoddfoot{plain}{}{\footnotesize {\thepage \quad \vrule \quad \thelastpage}}{} % Pages of chapters
+\pagestyle{mio} % Set the page style to the custom style defined above
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER FORMAT
+%----------------------------------------------------------------------------------------
+
+\makechapterstyle{Tufte}{ % Define a new chapter style
+\renewcommand{\chapterheadstart}{\null \vskip3.5\onelineskip} % Whitespace before the chapter starts
+\renewcommand{\printchaptername}{\large\itshape\chaptername} % "Chapter" text font specification
+\renewcommand{\printchapternum}{\LARGE\thechapter \\} % Chapter number font specification
+\renewcommand{\afterchapternum}{} % Space between the chapter number and text
+\renewcommand{\printchaptertitle}[1]{ % Chapter title font specification
+\raggedright
+\itshape\Huge{##1}}
+\renewcommand{\afterchaptertitle}{
+\vskip3.5\onelineskip
+}}
+\chapterstyle{Tufte} % Set the chapter style to the custom style defined above
+
+%----------------------------------------------------------------------------------------
+%	SECTION FORMAT
+%----------------------------------------------------------------------------------------
+
+\setsecheadstyle{\sethangfrom{\noindent ##1}\raggedright\sffamily\itshape\Large} % Section title font specification
+\setbeforesecskip{-.6\onelineskip} % Whitespace before the section
+\setaftersecskip{.3\onelineskip} % Whitespace after the section
+
+%----------------------------------------------------------------------------------------
+%	SUBSECTION FORMAT
+%----------------------------------------------------------------------------------------
+
+\setsubsecheadstyle{\sethangfrom{\noindent  ##1}\raggedright\sffamily\large\itshape} % Subsection title font specification
+\setbeforesubsecskip{-.5\onelineskip} % Whitespace before the subsection
+\setaftersubsecskip{.2\onelineskip} % Whitespace after the subsection
+
+%----------------------------------------------------------------------------------------
+%	SUBSUBSECTION FORMAT
+%----------------------------------------------------------------------------------------
+
+\setsubsubsecheadstyle{\sethangfrom{\noindent ##1}\raggedright\sffamily\itshape} % Subsubsection title font specification
+\setbeforesubsubsecskip{-.5\onelineskip} % Whitespace before the subsubsection
+\setaftersubsubsecskip{.1\onelineskip} % Whitespace after the subsubsection
+
+%----------------------------------------------------------------------------------------
+%	CAPTION FORMAT AND FIGURE NUMBERING
+%----------------------------------------------------------------------------------------
+
+\captiontitlefont{\itshape\footnotesize} % Caption font specification
+\captionnamefont{\footnotesize} % "Caption" text font specification
+% number figures with single digits in separate pdfs
+$if(separate)$
+\renewcommand{\thefigure}{\arabic{figure}}
+$endif$
+
+%----------------------------------------------------------------------------------------
+%	QUOTATION ENVIRONMENT FORMAT
+%----------------------------------------------------------------------------------------
+
+\renewenvironment{quotation}
+{\par\leftskip=1em\vskip.5\onelineskip\em}
+{\par\vskip.5\onelineskip}
+
+%----------------------------------------------------------------------------------------
+%	QUOTE ENVIRONMENT FORMAT
+%----------------------------------------------------------------------------------------
+
+\renewenvironment{quote}
+{\list{}{\em\leftmargin=1em}\item[]}{\endlist\relax}
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY FORMAT
+%----------------------------------------------------------------------------------------
+
+\newenvironment{references}
+{\setlength{\parskip}{0.5em} 
+\setlength{\parindent}{0pt}
+}
+{
+}
+
+%----------------------------------------------------------------------------------------
+%	MISCELLANEOUS DOCUMENT SPECIFICATIONS
+%----------------------------------------------------------------------------------------
+
+\setlength{\parindent}{1em} % Paragraph indentation
+\setcounter{secnumdepth}{0} % Remove section numbering
+
+\midsloppy % Fewer overfull lines - used in the memoir class and allows a setting somewhere between \fussy and \sloppy
+
+\checkandfixthelayout % Tell memoir to implement the above
+
+$if(subtitle)$
+\title{\nohyphens{$title$: $subtitle$}} % Title and subtitle
+$else$
+\title{\nohyphens{$title$}} % Just the title
+$endif$
+\author{$author$} % Author
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\thispagestyle{empty} % Suppress page numbering
+$if(cover)$
+\ThisCenterWallPaper{1.12}{$cover$} % Add the background image, the first argument is the scaling - adjust this as necessary so the image fits the entire page
+$endif$
+
+\begin{tikzpicture}[remember picture,overlay]
+\node [rectangle, rounded corners, fill=white, opacity=0.75, anchor=south west, minimum width=6cm, minimum height=6cm] (box) at (-0.5,-5) (box){}; % White rectangle - "minimum width/height" adjust the width and height of the box; "(-0.5,-10)" adjusts the position on the page
+\node[anchor=west, color01, xshift=-3.0cm, yshift=-2cm, text width=5.8cm, font=\sffamily\bfseries\scshape\Large] at (box.north){\thetitle}; % "Text width" adjusts the wrapping width, "xshift/yshift" adjust the position relative to the white rectangle
+\node[anchor=west, color01, xshift=-3.0cm, yshift=-5cm, text width=5.8cm, font=\sffamily\bfseries] at (box.north){\theauthor}; % "Text width" adjusts the wrapping width, "xshift/yshift" adjust the position relative to the white rectangle
+\end{tikzpicture}
+
+\newpage % Make sure the following content is on a new page
+
+%----------------------------------------------------------------------------------------
+%	COLYPHON
+%----------------------------------------------------------------------------------------
+
+$if(collection)$
+\vspace*{4\baselineskip} % Leave some room on top of the page
+
+$for(creator)$
+\noindent $creator.text$ \par
+$endfor$
+
+$if(publisher)$
+\noindent $publisher$ \par
+$endif$
+
+$if(date)$
+$if(rights)$
+\noindent $date$ $rights$ \par
+$else$
+\noindent $rights$ \par
+$endif$
+$endif$
+
+$if(isbn)$
+\noindent $isbn$ \par
+$endif$
+
+\clearpage
+$endif$
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+$if(toc)$
+\setcounter{tocdepth}{0}
+\tableofcontents % Prints the table of contents
+\clearpage
+$endif$
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT CONTENT
+%----------------------------------------------------------------------------------------
+
+$body$
+
+\end{document}
